@@ -10,6 +10,18 @@
 #include "HX711.h"   //for load cell
 #include "TaskScheduler.h" //to schedule loop task
 
+// header definition
+#define LOAD 1
+#define DISP 2
+#define TEMP 3
+#define CURRENT 4
+#define VOLTAGE 5
+#define P_CONTROL 6
+#define I_CONTROL 7
+#define D_CONTROL 8
+#define ALTITUDE 9
+#define TIME 10
+
 // Callback methods prototypes
 void loadcellCallback();
 void displacementCallback();
@@ -53,11 +65,9 @@ void setup() {
 
 void loop() {
   sensor_data_schedule.execute();
-  Serial.print(load_data);
-  Serial.print("\t");
-  Serial.print(temp_data);
-  Serial.print("\t");
-  Serial.println(disp_data);
+  msg_sender(LOAD,load_data);
+  msg_sender(DISP,disp_data);
+  msg_sender(TEMP,temp_data);
 }
 
 void task_scheduler_setup(){
