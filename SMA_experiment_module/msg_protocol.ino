@@ -7,7 +7,7 @@ byte header;
 byte timestamp;
 byte data;
 
-void msg_sender(int datatype, int dataval){
+void msg_sender(int datatype, float dataval){
   Serial.print(datatype);
   Serial.print(",");
   Serial.println(dataval);
