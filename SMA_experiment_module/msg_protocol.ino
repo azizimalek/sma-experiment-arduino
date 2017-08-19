@@ -68,3 +68,13 @@ void msg_handler(){
 //  }
 }
 
+void send_msg()
+{
+  msg_sender(LOAD,load_data);
+  msg_sender(DISP,disp_data);
+  msg_sender(TEMP,temp_data);
+  msg_sender(CURRENT,get_current());
+  msg_sender(VOLTAGE,get_voltage());
+  msg_sender(ALTITUDE,get_altitude());
+}
+

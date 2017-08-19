@@ -15,22 +15,22 @@ void sma_output()
   
 }
 
-void pwm_setup()
+void light_pwm_setup()
 {
   pinMode(4, OUTPUT);
-  t_pwm.every(LED_ind_on, pwm_High);
+  t_pwm.every(LED_ind_on, light_pwm_High);
 }
 
 
 
-void pwm_High()
+void light_pwm_High()
 {
-  t_pwm.after(LED_ind_off, pwm_Low);
+  t_pwm.after(LED_ind_off, light_pwm_Low);
   digitalWrite(4,HIGH);
 }
 
 
-void pwm_Low()
+void light_pwm_Low()
 {
   digitalWrite(4,LOW);
 }
